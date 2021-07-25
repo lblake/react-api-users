@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 // import '../css/app.css';
 import '../css/userlist.css';
@@ -6,7 +6,7 @@ import '../css/userlist.css';
 export default function UserList(props) {
   const [users, setUsers] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     axios.get(`https://jsonplaceholder.typicode.com/users`).then((response) => {
       console.log(response.data);
       const newUsers = response.data;
