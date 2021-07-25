@@ -1,11 +1,12 @@
 body {
   background-color: #e2e0e0;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 h1 {
   font-weight: 700;
   display: inline-block;
-  border: solid;
+  border: solid 5px grey;
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -32,7 +33,7 @@ div {
   margin: 5px auto;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-  width: 35rem;
+  width: 32rem;
   border-radius: 20px;
   border: solid 5px grey;
   transition: 0.5s ease;
@@ -60,6 +61,8 @@ div {
 }
 
 .addressInfo {
+  display: flex;
+  flex-wrap: wrap;
   padding-left: 5px;
   padding-right: 5px;
 }
