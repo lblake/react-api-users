@@ -1,0 +1,59 @@
+body {
+  background-color: #e2e0e0;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+}
+
+.userWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0px 20px;
+  height: 90vh;
+}
+
+.userItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  margin: 5px auto;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  width: 35rem;
+  border-radius: 20px;
+  border: solid 5px grey;
+  transition: 0.5s ease;
+}
+
+.userItem:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 2);
+}
+
+.userTitle {
+  margin-top: 0;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 1rem;
+}
+
+.addressInfo {
+  padding-left: 5px;
+  padding-right: 5px;
+}
