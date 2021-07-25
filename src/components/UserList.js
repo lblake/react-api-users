@@ -16,7 +16,7 @@ export default function UserList(props) {
 
   return (
     <div>
-      <h1>List of Users</h1>
+      <h1>User Information</h1>
       <div className='userWrapper'>
         {users.map((user) => {
           return (

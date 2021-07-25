@@ -3,8 +3,14 @@ body {
 }
 
 h1 {
-  text-align: center;
   font-weight: 700;
+  display: inline-block;
+  border: solid;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+div {
+  text-align: center;
 }
 
 .userWrapper {
