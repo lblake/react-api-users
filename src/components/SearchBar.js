@@ -1,18 +1,14 @@
-import React, { useState } from 'react';
-import '../css/searchBar.css'
+import '../css/searchBar.css';
 
-export default function SearchBar(props) {
-  console.log(props);
-  const [searchTerm, setSearchTerm] = useState([]);
+export default function SearchBar({ value, handleChange }) {
   return (
     <div>
       <input
-      className="searchBar"
+        className='searchBar'
         type='text'
         placeholder='Search...'
-        onChange={(event) => {
-          setSearchTerm(event.target.value);
-        }}
+        valueProp={value}
+        onChange={handleChange}
       />
     </div>
   );

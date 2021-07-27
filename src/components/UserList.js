@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../css/userlist.css';
 
-export default function UserList(props) {
+export default function UserList() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
