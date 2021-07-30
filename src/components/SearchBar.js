@@ -1,13 +1,13 @@
 import '../css/searchBar.css';
 
-export default function SearchBar({ value, handleChange }) {
+export default function SearchBar({ handleChange, placeholderProp }) {
   return (
     <div>
       <input
         className='searchBar'
-        type='text'
-        placeholder='Search...'
-        valueProp={value}
+        type='search'
+        placeholder={placeholderProp}
+        // valueProp={data}
         onChange={handleChange}
       />
     </div>

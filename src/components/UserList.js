@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import SearchBar from './SearchBar';
 import '../css/userlist.css';
 
-export default function UserList() {
+export default function UserList({ data }) {
   const [users, setUsers] = useState([]);
+  const [filteredUser, setFilteredUser] = useState([...users]);
 
   useEffect(() => {
     axios.get(`https://jsonplaceholder.typicode.com/users`).then((response) => {
@@ -13,11 +15,31 @@ export default function UserList() {
     });
   }, []);
 
+  const handleChange = (event) => {
+    const searchWord = event.target.value;
+    console.log(searchWord);
+    const newFilter = users.filter((value) => {
+      return value.name.toLowerCase().trim().indexOf(searchWord.toLowerCase().trim());
+    });
+
+    if (searchWord === ' ') {
+      setFilteredUser([]);
+    } else {
+      setFilteredUser(newFilter);
+      console.log('This is the new filter', newFilter);
+    }
+  };
+
   return (
     <div>
+      <SearchBar
+        // valueProp={data}
+        handleChange={(event) => handleChange(event)}
+        placeholderProp={'Search...'}
+      />
       <h1>User Information</h1>
       <div className='userWrapper'>
-        {users.map((user) => {
+        {filteredUser.map((user) => {
           return (
             <div className='userItem' key={user.id}>
               <p className='userTitle'>
