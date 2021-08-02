@@ -7,7 +7,6 @@ export default function SearchBar({ handleChange, placeholderProp }) {
         className='searchBar'
         type='search'
         placeholder={placeholderProp}
-        // valueProp={data}
         onChange={handleChange}
       />
     </div>
