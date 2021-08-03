@@ -20,3 +20,8 @@
   color: white;
   background-color: grey;
 }
+
+.paginationActive a {
+  color: white;
+  background-color: grey;
+}
