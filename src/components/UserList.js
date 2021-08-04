@@ -9,9 +9,11 @@ export default function UserList(props) {
   const [filteredUser, setFilteredUser] = useState([]);
 
   const [pageNumber, setPageNumber] = useState(0);
-  const usersPerPage = 3;
+  const [pageCount, setPageCount] = useState(0);
+
+  const usersPerPage = 4;
   const pagesVisited = pageNumber * usersPerPage;
-  const pageCount = Math.ceil(users.length / usersPerPage);
+  // const pageCount = Math.ceil(users.length / usersPerPage);
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
@@ -25,6 +27,12 @@ export default function UserList(props) {
       setFilteredUser(newUsers);
     });
   }, []);
+
+  useEffect(() => {
+    const pageCount = Math.ceil(users.length / usersPerPage);
+    setPageCount(pageCount);
+    console.log(pageCount);
+  }, [users.length]);
 
   const handleChange = (event) => {
     const searchWord = event.target.value;
@@ -79,7 +87,7 @@ export default function UserList(props) {
           })}
       </div>
       <PaginateUsers
-        users={users}
+        users={filteredUser}
         pageCount={pageCount}
         pagesVisited={pagesVisited}
         changePage={changePage}
