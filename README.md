@@ -16,4 +16,4 @@ After installing node you will need to do the following:
 
 1: Clone the repository
 
-2: After installing node open your IDE or Terminal or Git bash in the cloned directory and run the following command npm install to install the project dependencies
+2: After installing node open your IDE or Terminal or Git bash in the cloned directory and run the following command:<br> npm install to install the project dependencies
