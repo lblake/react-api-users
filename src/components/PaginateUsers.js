@@ -1,8 +1,9 @@
 import ReactPaginate from 'react-paginate';
-import '../css/paginateUsers.css';
+import styles from '../css/paginateUsers.module.css';
 
 export default function PaginateUsers({ changePage, pageCount, filteredUser }) {
-  console.log(pageCount);
+  console.log('this is filter user value', filteredUser);
+
   return (
     <div>
       <ReactPaginate
@@ -11,12 +12,11 @@ export default function PaginateUsers({ changePage, pageCount, filteredUser }) {
         nextLabel={'Next'}
         pageCount={pageCount}
         onPageChange={changePage}
-        pageRangeDisplayed={4}
-        containerClassName={'paginationBtns'}
-        previousLinkClassName={'previousBtn'}
-        nextLinkClassName={'nextBtn'}
-        disabledClassName={'paginationDisabled'}
-        activeClassName={'paginationActive'}
+        containerClassName={styles.paginationBtns}
+        previousLinkClassName={styles.previousBtn}
+        nextLinkClassName={styles.nextBtn}
+        disabledClassName={styles.paginationDisabled}
+        activeClassName={styles.paginationActive}
       />
     </div>
   );

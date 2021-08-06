@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import PaginateUsers from './PaginateUsers';
-import '../css/userlist.css';
+import styles from '../css/userList.module.css';
 
-export default function UserList(props) {
+export default function UserList() {
   const [users, setUsers] = useState([]);
   const [filteredUser, setFilteredUser] = useState([]);
 
@@ -12,7 +12,9 @@ export default function UserList(props) {
   const [pageCount, setPageCount] = useState(0);
 
   const usersPerPage = 4;
-  const pagesVisited = pageNumber * usersPerPage;
+  const [pagesVisited, setPagesVisited] = useState(pageNumber * usersPerPage);
+
+  // const pagesVisited = pageNumber * usersPerPage;
   // const pageCount = Math.ceil(users.length / usersPerPage);
 
   const changePage = ({ selected }) => {
@@ -29,10 +31,10 @@ export default function UserList(props) {
   }, []);
 
   useEffect(() => {
-    const pageCount = Math.ceil(users.length / usersPerPage);
-    setPageCount(pageCount);
-    console.log(pageCount);
-  }, [users.length]);
+    const pagesCount = Math.ceil(filteredUser.length / usersPerPage);
+    setPageCount(pagesCount);
+    console.log('useEffect filtered user', filteredUser.length);
+  }, [filteredUser]);
 
   const handleChange = (event) => {
     const searchWord = event.target.value;
@@ -49,9 +51,13 @@ export default function UserList(props) {
       setFilteredUser(users);
     } else {
       setFilteredUser(newFilter);
+      setPagesVisited(0);
     }
   };
-
+  console.log(filteredUser);
+  console.log(pageCount);
+  console.log(pagesVisited);
+  console.log(filteredUser.slice(pagesVisited, pagesVisited + usersPerPage));
   return (
     <div>
       <SearchBar
@@ -59,17 +65,17 @@ export default function UserList(props) {
         placeholderProp={'Search...'}
       />
       <h1>User Information</h1>
-      <div className='userWrapper'>
+      <div className={styles.userWrapper}>
         {filteredUser
           .slice(pagesVisited, pagesVisited + usersPerPage)
           .map((user) => {
             return (
-              <div className='userItem' key={user.id}>
-                <p className='userTitle'>
+              <div className={styles.userItem} key={user.id}>
+                <p className={styles.userTitle}>
                   Name: {user.name} Email: {user.email}
                 </p>
-                <div className='userInfo'>
-                  <span className='textInfo'>
+                <div className={styles.userInfo}>
+                  <span className={styles.userInfo}>
                     {/* Street:
                   <span className='addressInfo'> {user.address.street} </span>
                 </span>
