@@ -1,9 +1,12 @@
 import ReactPaginate from 'react-paginate';
 import styles from '../css/paginateUsers.module.css';
 
-export default function PaginateUsers({ changePage, pageCount, filteredUser }) {
-  console.log('this is filter user value', filteredUser);
-
+export default function PaginateUsers({
+  changePage,
+  pageCount,
+  filteredUser,
+  pageNumber,
+}) {
   return (
     <div>
       <ReactPaginate
@@ -11,6 +14,7 @@ export default function PaginateUsers({ changePage, pageCount, filteredUser }) {
         previousLabel={'Previous'}
         nextLabel={'Next'}
         pageCount={pageCount}
+        forcePage={pageNumber}
         onPageChange={changePage}
         containerClassName={styles.paginationBtns}
         previousLinkClassName={styles.previousBtn}

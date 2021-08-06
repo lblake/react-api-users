@@ -12,10 +12,7 @@ export default function UserList() {
   const [pageCount, setPageCount] = useState(0);
 
   const usersPerPage = 4;
-  const [pagesVisited, setPagesVisited] = useState(pageNumber * usersPerPage);
-
-  // const pagesVisited = pageNumber * usersPerPage;
-  // const pageCount = Math.ceil(users.length / usersPerPage);
+  const pagesVisited = pageNumber * usersPerPage;
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
@@ -33,10 +30,10 @@ export default function UserList() {
   useEffect(() => {
     const pagesCount = Math.ceil(filteredUser.length / usersPerPage);
     setPageCount(pagesCount);
-    console.log('useEffect filtered user', filteredUser.length);
   }, [filteredUser]);
 
   const handleChange = (event) => {
+    setPageNumber(0);
     const searchWord = event.target.value;
     const newFilter = users.filter((value) => {
       return (
@@ -51,13 +48,9 @@ export default function UserList() {
       setFilteredUser(users);
     } else {
       setFilteredUser(newFilter);
-      setPagesVisited(0);
     }
   };
-  console.log(filteredUser);
-  console.log(pageCount);
-  console.log(pagesVisited);
-  console.log(filteredUser.slice(pagesVisited, pagesVisited + usersPerPage));
+
   return (
     <div>
       <SearchBar
@@ -95,8 +88,8 @@ export default function UserList() {
       <PaginateUsers
         users={filteredUser}
         pageCount={pageCount}
-        pagesVisited={pagesVisited}
         changePage={changePage}
+        pageNumber={pageNumber}
       />
     </div>
   );
