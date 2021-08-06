@@ -4,8 +4,8 @@ export default function SearchBar({ handleChange, placeholderProp }) {
   return (
     <div>
       <input
-        className={styles.searchBar}
         type='search'
+        className={styles.searchBar}
         placeholder={placeholderProp}
         onChange={handleChange}
       />

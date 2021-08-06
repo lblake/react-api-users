@@ -10,15 +10,15 @@ export default function PaginateUsers({
   return (
     <div>
       <ReactPaginate
-        user={filteredUser}
-        previousLabel={'Previous'}
         nextLabel={'Next'}
+        previousLabel={'Previous'}
+        user={filteredUser}
         pageCount={pageCount}
         forcePage={pageNumber}
         onPageChange={changePage}
+        nextLinkClassName={styles.nextBtn}
         containerClassName={styles.paginationBtns}
         previousLinkClassName={styles.previousBtn}
-        nextLinkClassName={styles.nextBtn}
         disabledClassName={styles.paginationDisabled}
         activeClassName={styles.paginationActive}
       />
