@@ -8,3 +8,11 @@ To fetch a list of users data and display their information using React, React H
 3: Only display users name and email on the CSS cards on the homepage. Clicking on a CSS card you should be redirected to a new page where you will display all the information for a user
 
 # Installation
+
+install node if not already installed on your computer
+
+After installing node you will need to do the following:
+
+1: Clone the repository
+
+2: After installing node open your IDE or Terminal or Git bash in the cloned directory and run the following command npm install to install the project dependencies
