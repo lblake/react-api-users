@@ -1,6 +1,6 @@
 # React Self Study Project: Using an API to Display User Information
 I used JSON Placeholder website: https://jsonplaceholder.typicode.com/ 'users' endpoint and axios: https://github.com/axios/axios.
-To fetch a list of users data and display their information using React, React Hooks,JSX and CSS 
+To fetch a list of users data and display their information using React, React Hooks,JSX,CSS and React-Paginate: https://www.npmjs.com/package/react-paginate 
 
 # Goals
 1: Display a user CSS cards in the homepage for each user, with their details<br>
