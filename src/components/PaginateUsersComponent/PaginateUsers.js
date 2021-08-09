@@ -1,5 +1,5 @@
 import ReactPaginate from 'react-paginate';
-import styles from '../css/paginateUsers.module.css';
+import styles from './paginateUsers.module.css';
 
 export default function PaginateUsers({
   changePage,

@@ -1,4 +1,4 @@
-import styles from '../css/searchBar.module.css';
+import styles from './searchBar.module.css';
 
 export default function SearchBar({ handleChange, placeholderProp }) {
   return (
@@ -12,3 +12,6 @@ export default function SearchBar({ handleChange, placeholderProp }) {
     </div>
   );
 }
+
+
+

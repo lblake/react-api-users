@@ -1,8 +1,9 @@
 import { act, screen } from '@testing-library/react';
-import SearchBar from '../SearchBar';
+import SearchBar from './SearchBar';
+
 
 it('should render SearchBar component', async () => {
   await act(async () => {
-    expect(<SearchBar />).toBeTruthy();
+    expect(<SearchBar />).totoBeTruthy();
   });
 });
