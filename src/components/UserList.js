@@ -14,25 +14,28 @@ export default function UserList() {
   const usersPerPage = 4;
   const pagesVisited = pageNumber * usersPerPage;
 
+  // changePage function for paginate to know which page has been selected.
+  // See: https://www.npmjs.com/package/react-paginate for more information
   const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
-
+  // useEffect hook to connect to api
   useEffect(() => {
     axios.get(`https://jsonplaceholder.typicode.com/users`).then((response) => {
-      console.log(response.data);
       const newUsers = response.data;
       setUsers(newUsers);
       setFilteredUser(newUsers);
     });
   }, []);
-
+  // useEffect hook to update
   useEffect(() => {
     const pagesCount = Math.ceil(filteredUser.length / usersPerPage);
     setPageCount(pagesCount);
   }, [filteredUser]);
 
+  //handleChange function that filters what is typed in the searchbar
   const handleChange = (event) => {
+    //Sets the page count back to zero
     setPageNumber(0);
     const searchWord = event.target.value;
     const newFilter = users.filter((value) => {
@@ -52,13 +55,16 @@ export default function UserList() {
   };
 
   return (
+    //SearchBar component
     <div>
       <SearchBar
         handleChange={(event) => handleChange(event)}
         placeholderProp={'Search...'}
       />
+      {/* Displays user CSS cards */}
       <h1>User Information</h1>
       <div className={styles.userWrapper}>
+        {/* Displays a list of filtered users based on what is typed in the search bar */}
         {filteredUser
           .slice(pagesVisited, pagesVisited + usersPerPage)
           .map((user) => {
@@ -85,6 +91,7 @@ export default function UserList() {
             );
           })}
       </div>
+      {/* PaginateUsers component */}
       <PaginateUsers
         users={filteredUser}
         pageCount={pageCount}

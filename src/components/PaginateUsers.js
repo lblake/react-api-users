@@ -8,6 +8,7 @@ export default function PaginateUsers({
   pageNumber,
 }) {
   return (
+    // ReactPaginate component with values for displaying buttons at the bottom of the page
     <div>
       <ReactPaginate
         nextLabel={'Next'}

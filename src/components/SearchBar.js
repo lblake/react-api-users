@@ -2,7 +2,7 @@ import styles from '../css/searchBar.module.css';
 
 export default function SearchBar({ handleChange, placeholderProp }) {
   return (
-    <div>
+    <div data-testid="search-bar">
       <input
         type='search'
         className={styles.searchBar}
