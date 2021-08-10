@@ -7,7 +7,7 @@ import UserList from '.';
 
 configure({ adapter: new Adapter() });
 
-describe('UserList Tests', () => {
+describe('When UserList renders', () => {
   it('should render UserList component', async () => {
     await act(async () => {
       expect(<UserList />).toBeTruthy();
