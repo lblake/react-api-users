@@ -1,34 +1,50 @@
 import React from 'react';
-import Adapter from 'enzyme-adapter-react-16';
-import { shallow, configure } from 'enzyme';
-import { act, render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-import UserList from '.';
-
-configure({ adapter: new Adapter() });
+import { act, render, screen, waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import UserList from './UserList';
 
 describe('When UserList renders', () => {
+  beforeEach(() => {
+    act(() => {
+      render(<UserList />);
+    });
+  });
   it('should render UserList component', async () => {
-    await act(async () => {
-      expect(<UserList />).toBeTruthy();
+    screen.debug();
+  });
+  it('should test if word "User Information is on the page"', async () => {
+    await waitFor(() => {
+      expect(screen.getByText('User Information')).toBeInTheDocument();
     });
   });
 
-  it('should test if word "User Information is on the page"', async () => {
-    await act(async () => {
-      render(<UserList />);
+  it('should test if word "User Information" is not on the page', async () => {
+    await waitFor(() => {
+      expect(screen.queryByText('What ever')).not.toBeInTheDocument();
     });
-
-    const headlingElement = screen.getByText(/User Information/i);
-    expect(headlingElement).toBeInTheDocument();
   });
 });
 
-describe('handle change function', () => {
+describe('When mocking the API', () => {
+  beforeEach(() => {
+    act(() => {
+      render(<UserList />);
+    });
+  });
+  it('should test is API is returning response', async () => {
+    const getApiData = jest.fn();
+    getApiData.mockResolvedValue('Kurtis Weissnat');
+    await waitFor(() => {
+      screen.queryByText(/Kurtis Weissnat/);
+    });
+    screen.debug();
+  });
+
   it('should test handleChange function', async () => {
-    const mockedHandleChange = jest.fn();
-    const wrapper = shallow(<UserList onChange={jest.fn()} />);
-    wrapper.instance.handleChange = mockedHandleChange;
-    expect(mockedHandleChange).toHaveBeenCalledTimes(1);
+    const handleChange = jest.fn();
+    handleChange();
+    await waitFor(() => {
+      expect(handleChange).toBeCalledTimes(1);
+    });
   });
 });

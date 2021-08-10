@@ -19,9 +19,12 @@ export default function UserList() {
   const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
+  const getApiData = () => {
+    return axios.get(`https://jsonplaceholder.typicode.com/users`);
+  };
   // useEffect hook to connect to api
   useEffect(() => {
-    axios.get(`https://jsonplaceholder.typicode.com/users`).then((response) => {
+    getApiData().then((response) => {
       const newUsers = response.data;
       setUsers(newUsers);
       setFilteredUser(newUsers);
