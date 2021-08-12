@@ -1,12 +1,11 @@
 import React from 'react';
-import { act, render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import App from './App';
 
-describe('When rendering App Component', () => {
-  it('should render App component without errors', () => {
-    act(() => {
-      render(<App />);
-    });
-    screen.debug();
+describe('when rendering App component', () => {
+  it('should render App component without errors', async () => {
+    render(<App />);
+
+    // screen.debug();
   });
 });
