@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import SearchBar from '../SearchBarComponent/SearchBar';
 import PaginateUsers from '../PaginateUsersComponent/PaginateUsers';
 import styles from './userList.module.css';
+import getApiData from './getApiData';
 
 export default function UserList() {
   const [users, setUsers] = useState([]);
@@ -11,7 +11,9 @@ export default function UserList() {
   const [pageNumber, setPageNumber] = useState(0);
   const [pageCount, setPageCount] = useState(0);
 
-  const usersPerPage = 10;
+  // const usersPerPage = 10;
+
+  const [usersPerPage, setUsersPerPage] = useState(10);
   const pagesVisited = pageNumber * usersPerPage;
 
   // changePage function for paginate to know which page has been selected.
@@ -19,22 +21,27 @@ export default function UserList() {
   const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
-  const getApiData = () => {
-    return axios.get(`https://jsonplaceholder.typicode.com/users`);
+
+  const handleUsersPerPage = (event) => {
+    setUsersPerPage();
   };
+  // const getApiData = () => {
+  //   return axios.get(`https://jsonplaceholder.typicode.com/users`);
+  // };
   // useEffect hook to connect to api
   useEffect(() => {
     getApiData().then((response) => {
       const newUsers = response.data;
       setUsers(newUsers);
       setFilteredUser(newUsers);
+      // return response.data.users;
     });
   }, []);
   // useEffect hook to update
   useEffect(() => {
     const pagesCount = Math.ceil(filteredUser.length / usersPerPage);
     setPageCount(pagesCount);
-  }, [filteredUser]);
+  }, [filteredUser, usersPerPage]);
 
   //handleChange function that filters what is typed in the searchbar
   const handleChange = (event) => {
@@ -71,9 +78,9 @@ export default function UserList() {
         {/* Displays a list of filtered users based on what is typed in the search bar */}
         {filteredUser
           .slice(pagesVisited, pagesVisited + usersPerPage)
-          .map((user) => {
+          .map((user, index) => {
             return (
-              <div className={styles.userItem} key={user.id}>
+              <div className={styles.userItem} key={index}>
                 <p className={styles.userTitle}>
                   Name: {user.name} Email: {user.email}
                 </p>
