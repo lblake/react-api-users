@@ -1,7 +1,7 @@
 import mockGetApiData from './getApiData.js';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+
 import UserList from './UserList';
-import SearchBar from '../SearchBarComponent/SearchBar';
 
 jest.mock('./getApiData.js');
 
@@ -23,24 +23,21 @@ describe('when testing the UserList component', () => {
   });
 
   it('should mock a user typed in search bar', async () => {
-    const handleChange = jest.fn((value) => {});
     const searchInput = screen.getByRole('searchbox', {
       name: '',
     });
-    // render(<UserList handleChange={handleChange} />);
-
     expect(searchInput).toBeInTheDocument();
-    fireEvent.change(searchInput, { target: { value: 'Mocked Input User' } });
-    handleChange.mockReturnValueOnce(searchInput.value);
-    expect(searchInput.value).toBe('Mocked Input User');
 
-    await waitFor(() => mockGetApiData());
+    fireEvent.change(searchInput, { target: { value: 'Mocked User' } });
+    await waitFor(() => {
+      expect(searchInput).toHaveValue('Mocked User');
+    });
+
+    expect(await screen.findByText(/Mocked User/)).toBeInTheDocument();
+
     screen.debug();
-    console.log(searchInput.value, handleChange());
-    // expect(await screen.findByText(/Mocked Input User/)).toBeInTheDocument();
-    // expect(screen.getByRole('searchbox')).toHaveValue('Mocked Input User');
-    //   expect(await screen.findByText(/Mocked User/)).toBeInTheDocument();
 
-    expect(handleChange).toHaveBeenCalledTimes(1);
+    expect(screen.getByRole('searchbox')).toHaveValue('Mocked User');
+    // expect(handleChange).toHaveBeenCalledTimes(1);
   });
 });
