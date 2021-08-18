@@ -8,7 +8,7 @@ jest.mock('./getApiData.js');
 describe('when testing the UserList component', () => {
   afterEach(jest.clearAllMocks);
   beforeEach(() => {
-    const users = [{ name: 'Mocked  User', email: 'mocked@mocked.com' }];
+    const users = [{ name: 'Mocked User', email: 'mocked@mocked.com' }];
     const resp = { data: users };
     mockGetApiData.mockResolvedValue(resp);
     render(<UserList />);
@@ -30,9 +30,9 @@ describe('when testing the UserList component', () => {
     // fireEvent.change(searchInput, { target: { value: 'Mocked Input User' } });
     // userEvent.type(screen.getByLabelText(/search/i), 'ocked Input User')
 
-    userEvent.type(searchInput, 'Mocked Input User');
+    userEvent.type(searchInput, 'Mocked User');
     await waitFor(() => {
-      expect(searchInput).toHaveValue('Mocked Input User');
+      expect(searchInput).toHaveValue('Mocked User');
     });
 
     // screen.getByLabelText('search-bar');
