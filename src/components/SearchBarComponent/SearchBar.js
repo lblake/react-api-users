@@ -2,16 +2,18 @@ import styles from './searchBar.module.css';
 
 export default function SearchBar({ handleChange, placeholderProp }) {
   return (
-    <div data-testid="search-bar">
+    <div data-testid='search-bar'>
+      <form>
+        <label htmlFor='search-bar'>Search</label>
+      </form>
+
       <input
         type='search'
         className={styles.searchBar}
         placeholder={placeholderProp}
         onChange={handleChange}
+        id='search-bar'
       />
     </div>
   );
 }
-
-
-
