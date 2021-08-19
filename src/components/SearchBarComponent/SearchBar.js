@@ -5,15 +5,15 @@ export default function SearchBar({ handleChange, placeholderProp }) {
     <div data-testid='search-bar'>
       <form>
         <label htmlFor='search-bar'>Search</label>
-      </form>
 
-      <input
-        type='search'
-        className={styles.searchBar}
-        placeholder={placeholderProp}
-        onChange={handleChange}
-        id='search-bar'
-      />
+        <input
+          type='search'
+          className={styles.searchBar}
+          placeholder={placeholderProp}
+          onChange={handleChange}
+          id='search-bar'
+        />
+      </form>
     </div>
   );
 }
