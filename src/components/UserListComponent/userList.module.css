@@ -14,7 +14,15 @@ div {
   text-align: center;
 }
 
-.userSelection{
+/* .selectLabel {
+  padding-bottom: 50px;
+} */
+.userSelect {
+  display: block;
+  margin: 0 auto;
+}
+
+.userSelection {
   font-weight: 700;
   display: inline-block;
   border: solid 5px grey;

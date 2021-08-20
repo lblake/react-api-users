@@ -22,9 +22,12 @@ export default function UserList() {
     setPageNumber(selected);
   };
 
+  // sets the number of users displayed per page
   const handleUsersPerPage = (event) => {
-    setUsersPerPage();
+    const users = event.target.value;
+    setUsersPerPage(users);
   };
+
   // const getApiData = () => {
   //   return axios.get(`https://jsonplaceholder.typicode.com/users`);
   // };
@@ -71,6 +74,30 @@ export default function UserList() {
         handleChange={(event) => handleChange(event)}
         placeholderProp={'Search...'}
       />
+
+      <div>
+        <form>
+          <label>
+            Select the number of users per page
+            <select
+              className={styles.userSelect}
+              value={usersPerPage}
+              onChange={handleUsersPerPage}
+            >
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+              <option value='3'>3</option>
+              <option value='4'>4</option>
+              <option value='5'>5</option>
+              <option value='6'>6</option>
+              <option value='7'>7</option>
+              <option value='8'>8</option>
+              <option value='9'>9</option>
+              <option value='10'>10</option>
+            </select>
+          </label>
+        </form>
+      </div>
 
       {/* Displays user CSS cards */}
       <h1>User Information</h1>

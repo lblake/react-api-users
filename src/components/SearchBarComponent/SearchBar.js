@@ -4,7 +4,7 @@ export default function SearchBar({ handleChange, placeholderProp }) {
   return (
     <div data-testid='search-bar'>
       <form>
-        <label htmlFor='search-bar'>Search</label>
+        <label className={styles.searchLabel} htmlFor='search-bar'>Search</label>
 
         <input
           type='search'
