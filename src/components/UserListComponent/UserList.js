@@ -3,6 +3,7 @@ import SearchBar from '../SearchBarComponent/SearchBar';
 import PaginateUsers from '../PaginateUsersComponent/PaginateUsers';
 import styles from './userList.module.css';
 import getApiData from './getApiData';
+import { Link } from 'react-router-dom';
 
 export default function UserList() {
   const [users, setUsers] = useState([]);
@@ -10,8 +11,6 @@ export default function UserList() {
 
   const [pageNumber, setPageNumber] = useState(0);
   const [pageCount, setPageCount] = useState(0);
-
-  // const usersPerPage = 10;
 
   const [usersPerPage, setUsersPerPage] = useState(10);
   const pagesVisited = pageNumber * usersPerPage;
@@ -38,6 +37,7 @@ export default function UserList() {
       setUsers(newUsers);
       setFilteredUser(newUsers);
       // return response.data.users;
+      console.log(newUsers);
     });
   }, []);
   // useEffect hook to update
@@ -112,23 +112,14 @@ export default function UserList() {
                   Name: {user.name} Email: {user.email}
                 </p>
                 <div className={styles.userInfo}>
-                  <span className={styles.userInfo}>
-                    {/* Street:
-                  <span className='addressInfo'> {user.address.street} </span>
-                </span>
-                <span className='textInfo'>
-                  City:{' '}
-                  <span className='addressInfo'>{user.address.city} </span>
-                </span>{' '}
-                <span className='textInfo'>
-                  ZipCode:{' '}
-                  <span className='addressInfo'> {user.address.zipcode} </span> */}
-                  </span>
+                  <span className={styles.userInfo}></span>
                 </div>
+                <Link to={`/user/${user.id}`}>More Info</Link>
               </div>
             );
           })}
       </div>
+
       {/* PaginateUsers component */}
       <PaginateUsers
         users={filteredUser}
