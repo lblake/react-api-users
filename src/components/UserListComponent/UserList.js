@@ -6,7 +6,7 @@ import getApiData from './getApiData';
 import { Link } from 'react-router-dom';
 
 export default function UserList() {
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
   const [filteredUser, setFilteredUser] = useState([]);
 
   const [pageNumber, setPageNumber] = useState(0);
@@ -27,17 +27,12 @@ export default function UserList() {
     setUsersPerPage(users);
   };
 
-  // const getApiData = () => {
-  //   return axios.get(`https://jsonplaceholder.typicode.com/users`);
-  // };
   // useEffect hook to connect to api
   useEffect(() => {
-    getApiData().then((response) => {
-      const newUsers = response.data;
-      setUsers(newUsers);
+    // getApiData().then((response) => {
+    //   const newUsers = response.data;
+    //   // setUsers(newUsers);
       setFilteredUser(newUsers);
-      // return response.data.users;
-      console.log(newUsers);
     });
   }, []);
   // useEffect hook to update

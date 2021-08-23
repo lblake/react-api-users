@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { UserContext } from '../../App';
 
 export default function UserDetails() {
-  const users = useContext(UserContext);
+  const {users} = useContext(UserContext);
   const { userId } = useParams();
   console.log(users);
   const filteredUsers = users.filter((user) => {
