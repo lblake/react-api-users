@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import UserContext from '../UserListComponent/UserContext';
+import { UserContext } from '../UserListComponent/UserContext';
 
 export default function UserDetails() {
   const { users } = useContext(UserContext);
@@ -10,7 +10,7 @@ export default function UserDetails() {
     console.log(user);
     return user.id === parseInt(userId);
   });
-  //filteredUsers = [{name: john  email:email@john}]
+  //filteredUsers e.g = [{name: john  email:email@john}]
   const userInfo = filteredUsers.map((user, index) => {
     return (
       <div key={index}>

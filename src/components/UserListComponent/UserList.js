@@ -3,10 +3,11 @@ import SearchBar from '../SearchBarComponent/SearchBar';
 import PaginateUsers from '../PaginateUsersComponent/PaginateUsers';
 import styles from './userList.module.css';
 import { Link } from 'react-router-dom';
-import UserContext from '../UserListComponent/UserContext';
+import { UserContext } from './UserContext';
 
 export default function UserList() {
   const { users } = useContext(UserContext);
+
   const [filteredUser, setFilteredUser] = useState([]);
 
   const [pageNumber, setPageNumber] = useState(0);
@@ -14,7 +15,7 @@ export default function UserList() {
 
   const [usersPerPage, setUsersPerPage] = useState(10);
   const pagesVisited = pageNumber * usersPerPage;
-
+  console.log(users);
   // changePage function for paginate to know which page has been selected.
   // See: https://www.npmjs.com/package/react-paginate for more information
   const changePage = ({ selected }) => {

@@ -6,7 +6,6 @@ export const UserContext = createContext();
 export default function UserProvider(props) {
   const [users, setUsers] = useState([]);
   const myContextValue = { users: users };
-  // console.log(myContextValue);
 
   useEffect(() => {
     getApiData().then((response) => {
@@ -21,5 +20,3 @@ export default function UserProvider(props) {
     </UserContext.Provider>
   );
 }
-
-// export const useUserDetails = () => useContext(UserContext);
