@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { UserContext } from '../UserListComponent/UserContext';
+import UserContext from '../UserListComponent/UserContext';
 
 export default function UserDetails() {
   const { users } = useContext(UserContext);

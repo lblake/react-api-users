@@ -5,22 +5,18 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import UserDetails from './components/UserDetailsComponent/UserDetails';
 import UserProvider from './components/UserListComponent/UserContext';
 
-// const { Provider } = createContext();
-// export const UserContext = createContext([
-//   { id: 1, name: 'Lloyd', email: 'test@test.com' },
-// ]);
 function App() {
   return (
     <Router>
       <div>
-        <Route exact path='/'>
-          <UserProvider>
+        <UserProvider>
+          <Route exact path='/'>
             <UserList />
-          </UserProvider>
-        </Route>
-        <Route exact path='/user/:userId'>
-          <UserDetails />
-        </Route>
+          </Route>
+          <Route exact path='/user/:userId'>
+            <UserDetails />
+          </Route>
+        </UserProvider>
       </div>
     </Router>
   );

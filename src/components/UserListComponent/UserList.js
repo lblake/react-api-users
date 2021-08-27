@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import SearchBar from '../SearchBarComponent/SearchBar';
 import PaginateUsers from '../PaginateUsersComponent/PaginateUsers';
 import styles from './userList.module.css';
-// import getApiData from './getApiData';
 import { Link } from 'react-router-dom';
-import  users  from '../UserListComponent/UserContext';
+import UserContext from '../UserListComponent/UserContext';
 
 export default function UserList() {
-  // const [users, setUsers] = useState([]);
+  const { users } = useContext(UserContext);
   const [filteredUser, setFilteredUser] = useState([]);
 
   const [pageNumber, setPageNumber] = useState(0);
@@ -28,18 +27,9 @@ export default function UserList() {
     setUsersPerPage(users);
   };
 
-  // useEffect hook to connect to api
-  // useEffect(() => {
-  //   // getApiData().then((response) => {
-  //   //   const newUsers = response.data;
-  //   //   // setUsers(newUsers);
-  //     setFilteredUser(newUsers);
-  //   });
-  // }, []);
-
   useEffect(() => {
     setFilteredUser(users);
-  },[]);
+  }, [users]);
 
   // useEffect hook to update
   useEffect(() => {
