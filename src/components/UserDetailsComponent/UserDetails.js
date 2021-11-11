@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../UserListComponent/UserContext';
+import styles from '../UserListComponent/userList.module.css';
 
 export default function UserDetails() {
   const { users } = useContext(UserContext);
@@ -14,8 +15,8 @@ export default function UserDetails() {
   const userInfo = filteredUsers.map((user, index) => {
     return (
       <div key={index}>
-        {' '}
-        Name: {user.name} Email: {user.email}{' '}
+        Name: {user.name} Email: {user.email} <span></span>
+        Address: {user.address.street}
       </div>
     );
   });
