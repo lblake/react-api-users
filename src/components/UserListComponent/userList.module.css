@@ -13,10 +13,13 @@ h1 {
 div {
   text-align: center;
 }
-
+a {
+  color: #fff;
+}
 /* .selectLabel {
   padding-bottom: 50px;
 } */
+
 .userSelect {
   display: block;
   margin: 0 auto;

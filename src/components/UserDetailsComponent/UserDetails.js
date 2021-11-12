@@ -16,7 +16,9 @@ export default function UserDetails() {
     return (
       <div key={index}>
         Name: {user.name} Email: {user.email} <span></span>
-        Address: {user.address.street}
+        Address: {user.address.street}<span></span>
+        City: {user.address.city} <span></span>
+        Zip code: {user.address.zipcode}<span></span>
       </div>
     );
   });
