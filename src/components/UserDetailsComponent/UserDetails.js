@@ -18,14 +18,12 @@ export default function UserDetails() {
         <p className={styles.userTitle}>
           Name: {user.name} Email: {user.email}
         </p>
-        Address: {user.address.street}
-        <span></span>
-        City: {user.address.city} <span></span>
-        Zip Code: {user.address.zipcode} <span></span>
-        Phone: {user.phone} <span></span>
-        User Name: {user.username} <span></span>
-        Website: {user.website}
-        <span></span>
+        <p className={styles.addressInfo}>Address: {user.address.street}</p>
+        <p className={styles.addressInfo}>City: {user.address.city}</p>
+        <p className={styles.addressInfo}>Zip Code: {user.address.zipcode}</p>
+        <p className={styles.addressInfo}>Phone: {user.phone}</p>
+        <p className={styles.addressInfo}>User Name: {user.username}</p>
+        <p className={styles.addressInfo}>Website: {user.website}</p>
       </div>
     );
   });
