@@ -14,11 +14,19 @@ export default function UserDetails() {
   //filteredUsers e.g = [{name: john  email:email@john}]
   const userInfo = filteredUsers.map((user, index) => {
     return (
-      <div key={index}>
-        Name: {user.name} Email: {user.email} <span></span>
-        Address: {user.address.street}<span></span>
+      <div className={styles.userItem} key={index}>
+        <p className={styles.userTitle}>
+          Name: {user.name} Email: {user.email}
+        </p>
+        
+        Address: {user.address.street}
+        <span></span>
         City: {user.address.city} <span></span>
-        Zip code: {user.address.zipcode}<span></span>
+        Zip Code: {user.address.zipcode} <span></span>
+        Phone: {user.phone} <span></span>
+        User Name: {user.username} <span></span>
+        Website:  {user.website}
+        <span></span>
       </div>
     );
   });
