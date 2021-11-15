@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../UserListComponent/UserContext';
+import { Link } from 'react-router-dom';
+
 import styles from '../UserListComponent/userList.module.css';
 
 export default function UserDetails() {
@@ -24,6 +26,9 @@ export default function UserDetails() {
         <p className={styles.addressInfo}>Phone: {user.phone}</p>
         <p className={styles.addressInfo}>User Name: {user.username}</p>
         <p className={styles.addressInfo}>Website: {user.website}</p>
+        <div>
+          <Link to={`/`}>Home</Link>
+        </div>
       </div>
     );
   });
