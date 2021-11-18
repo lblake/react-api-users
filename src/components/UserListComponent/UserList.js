@@ -57,6 +57,14 @@ export default function UserList() {
     } else {
       setFilteredUser(newFilter);
     }
+
+    if (setUsersPerPage === ''){
+      setUsersPerPage(users);
+    } else {
+      PaginateUsers(values)
+    }
+
+    }
   };
 
   return (
