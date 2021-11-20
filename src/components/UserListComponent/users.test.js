@@ -10,7 +10,7 @@ describe('when testing the UserList component', () => {
     const users = [{ name: 'Mocked User', email: 'mocked@mocked.com' }];
     const resp = { data: users };
     mockGetApiData.mockResolvedValue(resp);
-    render(<UserList />);
+    render(<UserList/>);
   });
 
   it('should mock fetching users', async () => {
