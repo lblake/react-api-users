@@ -15,8 +15,6 @@ export default function UserList() {
 
   const [usersPerPage, setUsersPerPage] = useState(10);
   const pagesVisited = pageNumber * usersPerPage;
-  // const [pagesVisited, setPagesVisited] = useState(pageNumber * usersPerPage);
-  console.log(users);
   // changePage function for paginate to know which page has been selected.
   // See: https://www.npmjs.com/package/react-paginate for more information
   const changePage = ({ selected }) => {
@@ -30,9 +28,6 @@ export default function UserList() {
     setPageNumber(0);
     setUsersPerPage(users);
   };
-  // useEffect(() => {
-  //   setPagesVisited(pageNumber * usersPerPage);
-  // }, [usersPerPage]);
 
   useEffect(() => {
     setFilteredUser(users);
@@ -63,20 +58,11 @@ export default function UserList() {
     } else {
       setFilteredUser(newFilter);
     }
-
-    // if (setUsersPerPage === ''){
-    //   setUsersPerPage(users);
-    // } else {
-    //   PaginateUsers(values)
-    // }
-
-    // }
   };
   console.log(usersPerPage);
   console.log(typeof usersPerPage);
   return (
     //SearchBar component
-
     <div>
       <SearchBar
         handleChange={(event) => handleChange(event)}

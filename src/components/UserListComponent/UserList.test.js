@@ -1,11 +1,11 @@
 import React from 'react';
-import { act, render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import {render, screen } from '@testing-library/react';
+// import userEvent from '@testing-library/user-event';
 import UserList from './UserList';
 
 describe('when UserList component renders', () => {
   it('should render UserList component', async () => {
-    render(<UserList />);
+    // render(<UserList />);
   });
   it('should test if word "User Information is on the page"', async () => {
     render(<UserList />);
