@@ -1,7 +1,7 @@
 import mockGetApiData from './getApiData.js';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-// import {UserList} from './UserList';
+// i
 import UserList from './UserList'
 
 jest.mock('./getApiData.js');
