@@ -13,5 +13,6 @@ Test where written using React Testing Library and Jest
 
 
 ![image](src/images/react-api-users.png)
-
+<p align="center">
 https://react-users-api.netlify.app/
+  <p>
