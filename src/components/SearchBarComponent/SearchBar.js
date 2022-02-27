@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './searchBar.module.css';
 
 export default function SearchBar({ handleChange, placeholderProp }) {

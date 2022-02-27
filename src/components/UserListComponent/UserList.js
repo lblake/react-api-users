@@ -108,7 +108,10 @@ export default function UserList() {
                 <div className={styles.userInfo}>
                   <span className={styles.userInfo}></span>
                 </div>
-                <Link to={`/user/${user.id}`}>More Info</Link>
+                {/* <Link to={`/user/${user.id}`}>More Info</Link> */}
+                <a href={`/user/${user.id}`}>
+                  More Info
+                </a>
               </div>
             );
           })}
