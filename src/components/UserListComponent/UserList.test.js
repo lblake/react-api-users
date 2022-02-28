@@ -13,11 +13,13 @@ describe('when UserList component renders', () => {
       </UserContext.Provider>
     );
   });
-  // it('should test if word "User Information is on the page"', () => {
-  //   const users = [{ name: 'Mocked User', email: 'mocked@mocked.com' }];
-  //   render(<UserList.Provider value={users} />);
-  //   expect(screen.getByText(/User Information/i)).toBeInTheDocument();
-  // });
+  it('should test if word "User Information is on the page"', () => {
+    // const users = [{ name: 'Mocked User', email: 'mocked@mocked.com' }];
+    // render(<UserList.Provider value={users} />);
+    // expect(screen.getByText(/User/i)).toBeInTheDocument();
+    expect(screen.getByText((content, element) => content.startsWith('User'))
+
+  });
 
   // it('should test if word "User Information" is not on the page', () => {
   //   expect(screen.queryByText('What ever')).not.toBeInTheDocument();

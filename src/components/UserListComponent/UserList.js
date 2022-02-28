@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import SearchBar from '../SearchBarComponent/SearchBar';
 import PaginateUsers from '../PaginateUsersComponent/PaginateUsers';
 import styles from './userList.module.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { UserContext } from './UserContext';
 
 export default function UserList() {
